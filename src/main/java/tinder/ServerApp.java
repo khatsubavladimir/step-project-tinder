@@ -3,12 +3,21 @@ package tinder;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import tinder.db.ConnDetails;
+import tinder.db.DbConn;
+import tinder.db.DbSetup;
+
+import java.sql.Connection;
 
 
 public class ServerApp {
     public static void main(String[] args) throws Exception {
         Server server = new Server(8080);
         ServletContextHandler handler = new ServletContextHandler();
+
+        //Підключення до БД:
+        //DbSetup.migrate(ConnDetails.url, ConnDetails.username, ConnDetails.password);
+        //Connection conn = DbConn.create(ConnDetails.url, ConnDetails.username, ConnDetails.password);
 
         ProfileDao profileDao = new ProfileDao();
         LikedProfilesServlet likedProfilesServlet = new LikedProfilesServlet();
