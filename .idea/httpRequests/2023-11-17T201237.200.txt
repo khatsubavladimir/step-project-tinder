@@ -1,0 +1,1 @@
+<html><body><form method="post" action="/users">   <label>Name: Sheldon</label><br>   <img src="https://www.vokrug.tv/pic/person/a/7/7/e/a77e7c2fad04c812869cb7fa9bdfd01c.jpeg" alt="????"><br>   <button type="submit" name="choice" value="yes">Yes</button>   <button type="submit" name="choice" value="no">No</button></form></body></html>
