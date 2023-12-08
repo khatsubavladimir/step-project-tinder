@@ -1,6 +1,7 @@
 package tinder;
 
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import tinder.db.ConnDetails;
@@ -23,6 +24,10 @@ public class ServerApp {
         LikedProfilesServlet likedProfilesServlet = new LikedProfilesServlet();
         handler.addServlet(new ServletHolder(new HelloServlet(profileDao, likedProfilesServlet)), "/users");
         handler.addServlet(new ServletHolder(likedProfilesServlet), "/liked");
+
+        String resourceBase = ServerApp.class.getClassLoader().getResource("css").toExternalForm();
+        handler.setResourceBase(resourceBase);
+        handler.addServlet(DefaultServlet.class, "/");
 
         server.setHandler(handler);
         server.start();
