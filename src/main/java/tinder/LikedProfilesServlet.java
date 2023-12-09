@@ -23,12 +23,12 @@ public class LikedProfilesServlet extends HttpServlet {
     }
 
     public void addLikedProfile(Profile profile) {
-        profileDao.add(profile);
+        profileDao.addProfile(profile);
         System.out.println("Added liked profile: " + profile.getName());
     }
 
     public List<Profile> getLikedProfiles() {
-        return profileDao.getAll();
+        return profileDao.getAllProfiles();
     }
 
     @Override
