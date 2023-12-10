@@ -14,28 +14,22 @@ import java.util.List;
 import java.util.Map;
 
 public class LikedProfilesServlet extends HttpServlet {
-    private DAO<Profile> profileDao;
+    private List<Profile> likedProfiles;
 
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        profileDao = new ProfileDao();
-    }
-
-    public void addLikedProfile(Profile profile) {
-        profileDao.addProfile(profile);
-        System.out.println("Added liked profile: " + profile.getName());
+    public void setLikedProfiles(List<Profile> likedProfiles) {
+        this.likedProfiles = likedProfiles;
     }
 
     public List<Profile> getLikedProfiles() {
-        return profileDao.getAllProfiles();
+        return likedProfiles;
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Map<String, Object> data = new HashMap<>();
-        data.put("likedProfiles", getLikedProfiles());
-        Template template = FreeMarkerConfig.getInstance().getTemplate("liked_profiles.ftl");
+        data.put("likedProfiles", likedProfiles);
+
+        Template template = FreeMarkerConfig.getInstance().getTemplate("people-list.html");
 
         try {
             PrintWriter writer = resp.getWriter();

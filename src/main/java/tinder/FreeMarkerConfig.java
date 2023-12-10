@@ -12,6 +12,7 @@ public class FreeMarkerConfig {
     static {
         try {
             cfg.setDirectoryForTemplateLoading(new File("src/main/resources/templates"));
+
             cfg.setDefaultEncoding("UTF-8");
             cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
             cfg.setLogTemplateExceptions(false);

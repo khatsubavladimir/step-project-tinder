@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad380baa-b546-4f34-a25c-37354e85cb92" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/tinder/TinderServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/LikePageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/LikePageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/ProfileDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/ProfileDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/FreeMarkerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/FreeMarkerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/HelloServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/LikePageServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/LikedProfilesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/LikedProfilesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tinder/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/ServerApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hello.ftl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/like-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/like-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/liked_profiles.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/people-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/people-list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,16 +148,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tinder/ServerApp.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
