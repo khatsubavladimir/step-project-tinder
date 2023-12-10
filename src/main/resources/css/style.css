@@ -367,3 +367,7 @@ input:focus{
   outline: none;
 }
 
+.btn__choice{
+  margin: 8px;
+}
+

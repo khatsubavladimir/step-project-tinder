@@ -8,6 +8,7 @@ import tinder.db.ConnDetails;
 import tinder.db.DbConn;
 import tinder.db.DbSetup;
 
+import java.io.File;
 import java.sql.Connection;
 
 
@@ -25,7 +26,8 @@ public class ServerApp {
         handler.addServlet(new ServletHolder(new HelloServlet(profileDao, likedProfilesServlet)), "/users");
         handler.addServlet(new ServletHolder(likedProfilesServlet), "/liked");
 
-        String resourceBase = ServerApp.class.getClassLoader().getResource("css").toExternalForm();
+
+        String resourceBase = new File("src/main/resources").getAbsolutePath();
         handler.setResourceBase(resourceBase);
         handler.addServlet(DefaultServlet.class, "/");
 

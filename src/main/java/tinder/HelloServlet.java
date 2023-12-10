@@ -20,7 +20,7 @@ public class HelloServlet extends HttpServlet {
         this.likedProfilesServlet = likedProfilesServlet;
     }
 
-    public void addLikedProfile(Profile profile) {
+    public void addLikedProfile(HttpServletRequest request, HttpServletResponse response, Profile profile) {
         likedProfilesServlet.addLikedProfile(profile);
     }
 
@@ -32,6 +32,7 @@ public class HelloServlet extends HttpServlet {
             Map<String, Object> data = new HashMap<>();
             data.put("currentProfile", currentProfile);
             data.put("likedProfiles", likedProfilesServlet.getLikedProfiles());
+            data.put("request", req);
             Template template = FreeMarkerConfig.getInstance().getTemplate("like-page.html");
 
             try {
@@ -53,7 +54,7 @@ public class HelloServlet extends HttpServlet {
 
         // Додавання уподобаного профайлу до LikedProfilesServlet
         if ("yes".equals(choice)) {
-            addLikedProfile(currentProfile);
+            addLikedProfile(req, resp, currentProfile);
         }
 
         // Перевірка, чи залишилися доступні профайли

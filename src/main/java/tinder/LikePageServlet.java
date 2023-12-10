@@ -9,16 +9,34 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/like-page")
+@WebServlet("/users")
 public class LikePageServlet extends HttpServlet {
-    private ProfileDao profileDao = new ProfileDao();
+    private ProfileDao profileDao;
+    private HelloServlet helloServlet;
+
+    public LikePageServlet(ProfileDao profileDao, HelloServlet helloServlet) {
+        this.profileDao = profileDao;
+        this.helloServlet = helloServlet;
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Profile currentProfile = profileDao.getNextProfile();
         request.setAttribute("currentProfile", currentProfile);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/like-page.html");
-        dispatcher.forward(request, response);
+        // Відображення файлу "people-list.html"
+        request.getRequestDispatcher("people-list.html").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String choice = request.getParameter("choice");
+        Profile currentProfile = profileDao.getNextProfile();
+
+        // Додаємо уподобаний профайл до списку
+        if ("like".equals(choice)) {
+            helloServlet.addLikedProfile(request, response, currentProfile);
+        }
+
+        // Залишаємо користувача на сторінці "/users" після натискання кнопки
+        response.sendRedirect(request.getContextPath() + "/users");
     }
 }
-
