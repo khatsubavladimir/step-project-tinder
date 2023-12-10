@@ -19,12 +19,12 @@ public class ProfileDao implements DAO<Profile> {
     }
 
     @Override
-    public List<Profile> getAll() {
+    public List<Profile> getAllProfiles() {
         return profiles;
     }
 
     @Override
-    public void add(Profile item) {
+    public void addProfile(Profile item) {
         profiles.add(item);
     }
 
