@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class ServerApp {
     public static void main(String[] args) throws Exception {
         Server server = new Server(8080);
@@ -34,6 +33,7 @@ public class ServerApp {
 
         handler.addServlet(new ServletHolder(tinderServlet), "/users");
         handler.addServlet(new ServletHolder(likedProfilesServlet), "/liked");
+        handler.addServlet(LoginServlet.class, "/login");
 
         String resourceBase = new File("src/main/resources").getAbsolutePath();
         handler.setResourceBase(resourceBase);
