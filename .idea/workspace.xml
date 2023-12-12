@@ -4,24 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad380baa-b546-4f34-a25c-37354e85cb92" name="Changes" comment="перейменував getAll() в getAllProfiles для того щоб легше відрізняти його від getAllUsers()">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tinder/MessageSqlService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/restart/delete_tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+    <list default="true" id="ad380baa-b546-4f34-a25c-37354e85cb92" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tinder/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/MessageSqlDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/MessageSqlDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/ProfileDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/ProfileDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/LikedProfilesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/LikedProfilesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tinder/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/ServerApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tinder/TinderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/TinderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/UserSqlDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/UserSqlDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tinder/UserSqlService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/UserSqlService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tinder/db/ConnDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/db/ConnDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.migration/V001__table_profiles.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V001__table_profiles.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.migration/V002__initial_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V002__initial_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/people-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/people-list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +24,6 @@
       <list>
         <option value="HTTP Request" />
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -64,49 +54,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "development",
-    "last_opened_file_path": "C:/Users/USer/IdeaProjects/step-project-tinder/src/main/resources/db/restart",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USer/IdeaProjects/step-project-tinder/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "redshift",
-      "mysql"
-    ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "MySQL",
-      "Redshift"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;redshift&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\USer\IdeaProjects\step-project-tinder\src\main\resources\db\restart" />
       <recent name="C:\Users\USer\IdeaProjects\step-project-tinder\src\main\resources" />
       <recent name="C:\Users\USer\IdeaProjects\step-project-tinder\src\main\java" />
       <recent name="C:\Users\USer\IdeaProjects\step-project-tinder" />
       <recent name="C:\Users\LAPTOP ASUS\IdeaProjects\Tinder\src\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\USer\IdeaProjects\step-project-tinder\src\main\resources\db\migration" />
-      <recent name="C:\Users\USer\IdeaProjects\step-project-tinder\src\main\resources" />
       <recent name="C:\Users\LAPTOP ASUS\IdeaProjects\step-project-tinder\src\main\resources" />
+      <recent name="C:\Users\USer\IdeaProjects\step-project-tinder\src\main\resources" />
       <recent name="C:\Users\LAPTOP ASUS\IdeaProjects\Tinder\src\main\resources" />
     </key>
   </component>
@@ -149,57 +131,7 @@
       <workItem from="1701373222676" duration="9030000" />
       <workItem from="1702027862958" duration="2492000" />
       <workItem from="1702050316131" duration="4461000" />
-      <workItem from="1702307168698" duration="8243000" />
     </task>
-    <task id="LOCAL-00001" summary="зміни у БД:&#10;складається з трьох таблиць&#10;users, messages, liked">
-      <option name="closed" value="true" />
-      <created>1702141812753</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1702141812753</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Шари ДАО для юзера і роботи з SQL яка його стосується">
-      <option name="closed" value="true" />
-      <created>1702141851918</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702141851919</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Шари ДАО для меседжів і роботи з SQL яка їх стосується">
-      <option name="closed" value="true" />
-      <created>1702141864045</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1702141864045</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Шари ДАО для меседжів і роботи з SQL яка їх стосується">
-      <option name="closed" value="true" />
-      <created>1702141920847</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1702141920847</updated>
-    </task>
-    <task id="LOCAL-00005" summary="хмл файли змінені, тут вже не знаю чому, сама Idea їх змінює">
-      <option name="closed" value="true" />
-      <created>1702142002085</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1702142002086</updated>
-    </task>
-    <task id="LOCAL-00006" summary="перейменував getAll() в getAllProfiles для того щоб легше відрізняти його від getAllUsers()">
-      <option name="closed" value="true" />
-      <created>1702142066096</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1702142066096</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,13 +147,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="зміни у БД:&#10;складається з трьох таблиць&#10;users, messages, liked" />
-    <MESSAGE value="Шари ДАО для юзера і роботи з SQL яка його стосується" />
-    <MESSAGE value="Шари ДАО для меседжів і роботи з SQL яка їх стосується" />
-    <MESSAGE value="хмл файли змінені, тут вже не знаю чому, сама Idea їх змінює" />
-    <MESSAGE value="перейменував getAll() в getAllProfiles для того щоб легше відрізняти його від getAllUsers()" />
-    <option name="LAST_COMMIT_MESSAGE" value="перейменував getAll() в getAllProfiles для того щоб легше відрізняти його від getAllUsers()" />
   </component>
 </project>

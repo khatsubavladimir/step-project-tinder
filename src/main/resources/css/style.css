@@ -88,15 +88,22 @@ i {  vertical-align: middle; }
   margin-bottom: 0;
 }
 
-.avatar-img {
-  display: flex;
-  align-items: center;
-}
+/*.avatar-img {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*}*/
 
-.img-circle {
-  border-radius: 50%;
-  width: 70px;
-}
+/*.avatar-container {*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*  border-radius: 50%;*/
+/*  overflow: hidden; */
+/*}*/
+
+/*.img-circle {*/
+/*  border-radius: 50%;*/
+/*  width: 70px;*/
+/*}*/
 
 .chat
 {
