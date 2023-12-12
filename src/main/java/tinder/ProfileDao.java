@@ -22,13 +22,18 @@ public class ProfileDao implements DAO<Profile> {
     }
 
     @Override
-    public List<Profile> getAllProfiles() {
+    public List<Profile> getAll() {
         return profiles;
     }
 
     @Override
-    public void addProfile(Profile item) {
+    public void add(Profile item) {
         profiles.add(item);
+    }
+
+    @Override
+    public Profile getByID(int id) {
+        return null;
     }
 
     public Profile getNextProfile() {

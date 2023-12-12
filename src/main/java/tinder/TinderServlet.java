@@ -25,7 +25,7 @@ public class TinderServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Profile> profiles = profileDao.getAllProfiles();
+        List<Profile> profiles = profileDao.getAll();
 
         // Отримайте індекс поточного профілю з сесії або встановіть його в нуль, якщо він ще не встановлений.
         Integer currentIndex = (Integer) req.getSession().getAttribute("currentIndex");
@@ -72,8 +72,8 @@ public class TinderServlet extends HttpServlet {
             if (currentIndex != null) {
                 // Якщо обрано "Like", додайте поточний профіль до списку likedProfiles
                 if ("like".equals(choice)) {
-                    Profile currentProfile = (currentIndex < profileDao.getAllProfiles().size())
-                            ? profileDao.getAllProfiles().get(currentIndex)
+                    Profile currentProfile = (currentIndex < profileDao.getAll().size())
+                            ? profileDao.getAll().get(currentIndex)
                             : null;
                     if (currentProfile != null) {
                         likedProfiles.add(currentProfile);

@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class MessageSqlDAO {
+public class MessageSqlDAO implements DAO<Message>{
 
     public Connection conn;
     public MessageSqlDAO (Connection conn) {
         this.conn = conn;
     }
 
-    private Iterable<Message> resultSetToIterable(ResultSet rs) {
+    Iterable<Message> resultSetToIterable(ResultSet rs) {
         return () -> new Iterator<>() {
             @Override
             public boolean hasNext() {
@@ -41,23 +41,13 @@ public class MessageSqlDAO {
             }
         };
     }
-    public List<Message> getMessages(int from, int to) { //видає всі повідомлення які юзер "from" написав юзеру "to"
-        PreparedStatement st = null;
-        try {
-            st = conn.prepareStatement("SELECT * from messages where from_id = ? and to_id = ?;");
-            st.setInt(1, from);
-            st.setInt(2, to);
-            ResultSet rs = st.executeQuery();
 
-            ArrayList<Message> list = new ArrayList<>();
-            resultSetToIterable(rs).forEach(list::add);
-
-            return list;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    @Override
+    public List<Message> getAll() {
+        return null;
     }
 
+    @Override
     public void add(Message message){
         PreparedStatement st = null;
         try {
@@ -66,6 +56,23 @@ public class MessageSqlDAO {
             st.setInt(2, message.getTo());
             st.setString(3, message.getMessage());
             st.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Message getByID(int id) {
+        PreparedStatement st = null;
+        try {
+            st = conn.prepareStatement("SELECT * from messages where mg_id = ?;");
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+
+            ArrayList<Message> list = new ArrayList<>();
+            resultSetToIterable(rs).forEach(list::add);
+
+            return list.get(0);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

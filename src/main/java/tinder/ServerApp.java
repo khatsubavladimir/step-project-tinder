@@ -19,8 +19,8 @@ public class ServerApp {
         ServletContextHandler handler = new ServletContextHandler();
 
         // Підключення до БД:
-        // DbSetup.migrate(ConnDetails.url, ConnDetails.username, ConnDetails.password);
-        // Connection conn = DbConn.create(ConnDetails.url, ConnDetails.username, ConnDetails.password);
+        DbSetup.migrate(ConnDetails.url, ConnDetails.username, ConnDetails.password);
+        Connection conn = DbConn.create(ConnDetails.url, ConnDetails.username, ConnDetails.password);
 
         ProfileDao profileDao = new ProfileDao();
         LikedProfilesServlet likedProfilesServlet = new LikedProfilesServlet();

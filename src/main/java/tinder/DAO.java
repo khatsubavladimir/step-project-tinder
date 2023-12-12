@@ -3,8 +3,7 @@ package tinder;
 import java.util.List;
 
 public interface DAO<T> {
-    List<T> getAllProfiles();
-    void addProfile(T item);
-
-    T getNextProfile();
+    List<T> getAll();
+    void add(T item);
+    T getByID(int id);
 }
