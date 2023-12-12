@@ -17,47 +17,36 @@ import java.util.Map;
 
 public class TinderServlet extends HttpServlet {
     private DAO<Profile> profileDao;
-    private List<Profile> likedProfiles = new ArrayList<>();
+    private LikedProfilesServlet likedProfilesServlet;
 
-    public TinderServlet(DAO<Profile> profileDao) {
+    public TinderServlet(DAO<Profile> profileDao, LikedProfilesServlet likedProfilesServlet) {
         this.profileDao = profileDao;
+        this.likedProfilesServlet = likedProfilesServlet;
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Profile> profiles = profileDao.getAll();
-
-        // Отримайте індекс поточного профілю з сесії або встановіть його в нуль, якщо він ще не встановлений.
         Integer currentIndex = (Integer) req.getSession().getAttribute("currentIndex");
         if (currentIndex == null) {
             currentIndex = 0;
             req.getSession().setAttribute("currentIndex", currentIndex);
         }
-
-        // Перевірка, чи індекс поточного профілю не перевищує загальну кількість профілів
         if (currentIndex < profiles.size()) {
-            // Отримайте поточний профіль за індексом.
             Profile currentProfile = profiles.get(currentIndex);
-
-            // Конфігурація FreeMarker
             Configuration cfg = FreeMarkerConfig.getInstance();
-
-            // Дані для передачі в шаблон FreeMarker
             Map<String, Object> templateData = new HashMap<>();
             templateData.put("profiles", profiles);
-            templateData.put("currentProfile", currentProfile); // Додайте поточний профіль до моделі
-            templateData.put("request", req); // Додайте об'єкт request до моделі
-
-            // Використання FreeMarker для генерації HTML
+            templateData.put("currentProfile", currentProfile);
+            templateData.put("request", req);
             try {
-                Template template = cfg.getTemplate("like-page.html"); // Змінено розширення файлу на .ftl
+                Template template = cfg.getTemplate("like-page.html");
                 PrintWriter writer = resp.getWriter();
                 template.process(templateData, writer);
             } catch (TemplateException e) {
                 throw new ServletException("Error processing FreeMarker template", e);
             }
         } else {
-            // Якщо індекс перевищує кількість профілів, здійсніть переадресацію на сторінку "/liked"
             resp.sendRedirect(req.getContextPath() + "/liked");
         }
     }
@@ -67,27 +56,22 @@ public class TinderServlet extends HttpServlet {
         String choice = req.getParameter("choice");
 
         if ("like".equals(choice) || "dislike".equals(choice)) {
-            // Якщо обрано "Like" або "Dislike", оновіть індекс профілю
             Integer currentIndex = (Integer) req.getSession().getAttribute("currentIndex");
             if (currentIndex != null) {
-                // Якщо обрано "Like", додайте поточний профіль до списку likedProfiles
                 if ("like".equals(choice)) {
                     Profile currentProfile = (currentIndex < profileDao.getAll().size())
                             ? profileDao.getAll().get(currentIndex)
                             : null;
                     if (currentProfile != null) {
-                        likedProfiles.add(currentProfile);
-                        // Вивести ім'я лайкнутого профілю у консоль
+                        likedProfilesServlet.addLikedProfile(currentProfile);
                         System.out.println("Liked profile: " + currentProfile.getName());
                     }
                 }
 
-                currentIndex++; // Перенесено в цей рядок
+                currentIndex++;
                 req.getSession().setAttribute("currentIndex", currentIndex);
             }
         }
-
-        // Перенаправлення на головну сторінку для відображення нового профілю
         resp.sendRedirect(req.getContextPath() + "/users");
     }
 }

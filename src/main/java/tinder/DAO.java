@@ -7,3 +7,4 @@ public interface DAO<T> {
     void add(T item);
     T getByID(int id);
 }
+

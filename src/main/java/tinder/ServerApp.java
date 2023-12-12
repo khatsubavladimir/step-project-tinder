@@ -11,6 +11,9 @@ import tinder.db.DbSetup;
 
 import java.io.File;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 public class ServerApp {
@@ -20,12 +23,11 @@ public class ServerApp {
 
         // Підключення до БД:
         DbSetup.migrate(ConnDetails.url, ConnDetails.username, ConnDetails.password);
-        Connection conn = DbConn.create(ConnDetails.url, ConnDetails.username, ConnDetails.password);
+        DbConn.create(ConnDetails.url, ConnDetails.username, ConnDetails.password);
 
         ProfileDao profileDao = new ProfileDao();
         LikedProfilesServlet likedProfilesServlet = new LikedProfilesServlet();
-        TinderServlet tinderServlet = new TinderServlet(profileDao);
-
+        TinderServlet tinderServlet = new TinderServlet(profileDao, likedProfilesServlet);
 
         SessionHandler sessionHandler = new SessionHandler();
         handler.setHandler(sessionHandler);
