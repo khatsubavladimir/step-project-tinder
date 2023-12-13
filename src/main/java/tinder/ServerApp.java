@@ -11,7 +11,6 @@ import tinder.db.DbSetup;
 import java.io.File;
 
 
-
 public class ServerApp {
     public static void main(String[] args) throws Exception {
         Server server = new Server(8080);
@@ -24,7 +23,9 @@ public class ServerApp {
         ProfileDao profileDao = new ProfileDao();
         LikedProfilesServlet likedProfilesServlet = new LikedProfilesServlet();
         TinderServlet tinderServlet = new TinderServlet(profileDao, likedProfilesServlet);
+
         MessagesServlet messagesServlet = new MessagesServlet();
+
 
         SessionHandler sessionHandler = new SessionHandler();
         handler.setHandler(sessionHandler);
@@ -33,6 +34,7 @@ public class ServerApp {
         handler.addServlet(new ServletHolder(likedProfilesServlet), "/liked");
         handler.addServlet(LoginServlet.class, "/login");
         handler.addServlet(new ServletHolder(messagesServlet), "/messages/*");
+
 
         String resourceBase = new File("src/main/resources").getAbsolutePath();
         handler.setResourceBase(resourceBase);

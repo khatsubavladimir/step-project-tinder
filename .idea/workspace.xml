@@ -73,7 +73,7 @@
       "redshift"
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USer\IdeaProjects\step-project-tinder\src\main\resources" />
@@ -111,6 +111,7 @@
         <item itemvalue="Application.ServerApp" />
         <item itemvalue="HTTP Request.tests | test" />
         <item itemvalue="Application.ServerApp" />
+
       </list>
     </recent_temporary>
   </component>
@@ -131,6 +132,7 @@
       <workItem from="1702050316131" duration="4461000" />
       <workItem from="1702403815020" duration="732000" />
       <workItem from="1702455350775" duration="2715000" />
+
     </task>
     <servers />
   </component>
