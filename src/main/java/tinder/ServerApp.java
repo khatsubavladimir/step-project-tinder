@@ -8,11 +8,8 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import tinder.db.ConnDetails;
 import tinder.db.DbConn;
 import tinder.db.DbSetup;
-
 import java.io.File;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 public class ServerApp {
@@ -27,6 +24,7 @@ public class ServerApp {
         ProfileDao profileDao = new ProfileDao();
         LikedProfilesServlet likedProfilesServlet = new LikedProfilesServlet();
         TinderServlet tinderServlet = new TinderServlet(profileDao, likedProfilesServlet);
+        MessagesServlet messagesServlet = new MessagesServlet();
 
         SessionHandler sessionHandler = new SessionHandler();
         handler.setHandler(sessionHandler);
@@ -34,6 +32,7 @@ public class ServerApp {
         handler.addServlet(new ServletHolder(tinderServlet), "/users");
         handler.addServlet(new ServletHolder(likedProfilesServlet), "/liked");
         handler.addServlet(LoginServlet.class, "/login");
+        handler.addServlet(new ServletHolder(messagesServlet), "/messages/*");
 
         String resourceBase = new File("src/main/resources").getAbsolutePath();
         handler.setResourceBase(resourceBase);
