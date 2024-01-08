@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f77bf29-0b70-4080-8e36-6f9340bdce9d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tinder/db/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1f77bf29-0b70-4080-8e36-6f9340bdce9d" name="Changes" comment="три нових профіля перенесені в БД">
       <change beforePath="$PROJECT_DIR$/src/main/java/tinder/LikedProfilesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/LikedProfilesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tinder/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/ServerApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tinder/TinderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tinder/TinderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V002__initial_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V002__initial_data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,37 @@
     </recent_temporary>
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="ще один файл для підключення до БД">
+      <option name="closed" value="true" />
+      <created>1704732906993</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704732906993</updated>
+    </task>
+    <task id="LOCAL-00002" summary="автоматичні зміни в хмл">
+      <option name="closed" value="true" />
+      <created>1704732933701</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704732933701</updated>
+    </task>
+    <task id="LOCAL-00003" summary="три нових профіля перенесені в БД">
+      <option name="closed" value="true" />
+      <created>1704732951025</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704732951025</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ще один файл для підключення до БД" />
+    <MESSAGE value="автоматичні зміни в хмл" />
+    <MESSAGE value="три нових профіля перенесені в БД" />
+    <option name="LAST_COMMIT_MESSAGE" value="три нових профіля перенесені в БД" />
   </component>
 </project>
