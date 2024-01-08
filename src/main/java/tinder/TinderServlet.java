@@ -16,17 +16,17 @@ import java.util.List;
 import java.util.Map;
 
 public class TinderServlet extends HttpServlet {
-    private DAO<Profile> profileDao;
+    private UserSqlService service;
     private LikedProfilesServlet likedProfilesServlet;
 
-    public TinderServlet(DAO<Profile> profileDao, LikedProfilesServlet likedProfilesServlet) {
-        this.profileDao = profileDao;
+    public TinderServlet(UserSqlService service, LikedProfilesServlet likedProfilesServlet) {
+        this.service = service;
         this.likedProfilesServlet = likedProfilesServlet;
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Profile> profiles = profileDao.getAll();
+        List<Profile> profiles = service.getAllProfiles();
         Integer currentIndex = (Integer) req.getSession().getAttribute("currentIndex");
         if (currentIndex == null) {
             currentIndex = 0;
@@ -53,17 +53,18 @@ public class TinderServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int currentUser = 1; // треба десь слідкувати за цим, після створення процесу логіну
         String choice = req.getParameter("choice");
 
         if ("like".equals(choice) || "dislike".equals(choice)) {
             Integer currentIndex = (Integer) req.getSession().getAttribute("currentIndex");
             if (currentIndex != null) {
                 if ("like".equals(choice)) {
-                    Profile currentProfile = (currentIndex < profileDao.getAll().size())
-                            ? profileDao.getAll().get(currentIndex)
+                    User currentProfile = (currentIndex < service.getAll().size())
+                            ? service.getAll().get(currentIndex)
                             : null;
                     if (currentProfile != null) {
-                        likedProfilesServlet.addLikedProfile(currentProfile);
+                        likedProfilesServlet.addLikedProfile(currentUser, currentProfile);
                         System.out.println("Liked profile: " + currentProfile.getName());
                     }
                 }

@@ -14,17 +14,23 @@ import java.util.List;
 import java.util.Map;
 
 public class LikedProfilesServlet extends HttpServlet {
-    private List<Profile> likedProfiles = new ArrayList<>();
+    private UserSqlService service;
 
-    public void addLikedProfile(Profile profile) {
-        likedProfiles.add(profile);
+    public LikedProfilesServlet(UserSqlService service) {
+        this.service = service;
     }
+
+    public void addLikedProfile(int user, User profile) {
+        service.addLike(user, profile.getId());
+    } // user - це currentUser, profile це ID профілю
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Map<String, Object> data = new HashMap<>();
-        data.put("likedProfiles", likedProfiles);
-        System.out.println("Liked profiles size: " + likedProfiles.size());
+        int currentUser = 1; // треба десь слідкувати за цим, після створення процесу логіну
+        Map<String, List<Profile>> data = new HashMap<>();
+        data.put("likedProfiles", service.getLikedProfiles(currentUser));
+        System.out.println("Liked profiles size: " + service.getLikedProfiles(currentUser).size());
         Template template = FreeMarkerConfig.getInstance().getTemplate("people-list.html");
 
         try {
